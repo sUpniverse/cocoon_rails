@@ -1,0 +1,24 @@
+<div class="container">
+	<form action="/posts/<%=@post.id%>" method="POST">		
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="_method" value="PUT">
+		<table class="table">
+			<thead>
+				<th><%=@post.id%>번 글수정</th>
+			</thead>
+			<tbody>
+		        <tr>
+		          <td>
+		            <input class="form-control" type="text" name="title" placeholder="제목" value="<%=@post.title%>">
+		          </td>
+		        </tr>
+		        <tr>
+		          <td>
+		            <input class="form-control" type="text" name="contents"  placeholder="내용" value="<%=@post.contents%>">        
+		          </td>
+		        </tr>
+	      </tbody>
+		</table>
+		<input type="submit" value="수정하기" class="btn btn-primary">
+	</form>
+</div>

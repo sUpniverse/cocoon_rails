@@ -1,0 +1,25 @@
+<div class="container">
+  <form action="/posts" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">게시판 작성</th>
+        </tr>        
+      </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="form-control" type="text" name="title" placeholder="제목">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control" type="text" name="contents" size="1024px" placeholder="내용">            
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <input class="btn btn-default" type="submit" value="등록하기">    
+  </form>
+</div>
