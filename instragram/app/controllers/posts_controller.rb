@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
   	@posts = Post.all.reverse
   end
@@ -35,4 +37,16 @@ class PostsController < ApplicationController
   		)
   	redirect_to "/posts/#{@post.id}"
   end
+
+  private
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end 
+
+
 end
