@@ -1,5 +1,5 @@
-<div class="container">
-	<table class="table">
+<div class="container d-flex justify-content-center mt-3">
+	<!-- <table class="table">
 		<thead>
 			<th><%=@post.id%>번 글보기</th>
 		</thead>
@@ -13,9 +13,26 @@
 			<tr>
 				<td><%=@post.contents%></td>
 			</tr>
+			<tr>
+				<td><img src="<%=@post.Avatar%>"></td>
+			</tr>
 		</tbody>
-	</table>
-	<a href ="#" class="btn btn-primary">좋아요</a>
-	<a href ="/posts/<%=@post.id%>/edit" class="btn btn-warning">수정</a>
-	<a href ="/posts/<%=@post.id%>" data-method="delete" class="btn btn-danger">삭제</a>
+	</table> -->
+
+	
+	<figure class="figure">
+  		<img src="<%=@post.Avatar%>" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  		<figcaption class="figure-caption text-center">
+			<p><%=@post.title%></p>
+			<p><%=@post.contents%></p>
+		</table>
+  		</figcaption>
+	</figure>	
+	<p>
+		<div>
+			<a href ="#" class="btn btn-primary">좋아요</a>
+			<a href ="/posts/<%=@post.id%>/edit" class="btn btn-warning">수정</a>
+			<a href ="/posts/<%=@post.id%>" data-method="delete" class="btn btn-danger">삭제</a>		
+		</div>
+	</p>
 </div>

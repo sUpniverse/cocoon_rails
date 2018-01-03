@@ -1,5 +1,5 @@
 <div class="container">
-	<form action="/posts/<%=@post.id%>" method="POST">		
+	<form action="/posts/<%=@post.id%>" method="POST" enctype="multipart/form-data">		
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<input type="hidden" name="_method" value="PUT">
 		<table class="table">
@@ -17,6 +17,9 @@
 		            <input class="form-control" type="text" name="contents"  placeholder="내용" value="<%=@post.contents%>">        
 		          </td>
 		        </tr>
+		        <tr>
+           			<td><input type="file" name="Avatar"></td>
+          		</tr>
 	      </tbody>
 		</table>
 		<input type="submit" value="수정하기" class="btn btn-primary">

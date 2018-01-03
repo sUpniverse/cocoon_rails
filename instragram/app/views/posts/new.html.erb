@@ -1,6 +1,6 @@
 <div class="container">
-  <form action="/posts" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <form action="/posts" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">    
     <table class="table">
       <thead>
         <tr>
@@ -18,8 +18,11 @@
               <input class="form-control" type="text" name="contents" size="1024px" placeholder="내용">            
             </td>
           </tr>
+          <tr>
+            <td><input type="file" name="Avatar"></td>
+          </tr>
         </tbody>
     </table>
-    <input class="btn btn-default" type="submit" value="등록하기">    
+    <input class="btn btn-success" type="submit" value="등록하기">    
   </form>
 </div>

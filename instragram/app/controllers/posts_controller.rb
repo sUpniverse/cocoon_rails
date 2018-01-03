@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@posts = Post.all.reverse
+      @posts = Post.where("title Like ?","%#{params["q"]}%").reverse
   end
 
   def new  	
@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   def create
   	Post.create(
   		title: params[:title],
-  		contents: params[:contents]
+  		contents: params[:contents],
+      Avatar: params[:Avatar]
   		)
   	redirect_to '/'
   end
@@ -33,7 +34,8 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   	@post.update(
   		title: params[:title],
-  		contents: params[:contents]
+  		contents: params[:contents],
+      Avatar: params[:Avatar]
   		)
   	redirect_to "/posts/#{@post.id}"
   end
@@ -45,7 +47,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :Avatar)
     end 
 
 
