@@ -59,11 +59,11 @@ RESTful이란, 주소창(url)을 통해서 자원(리소스)과 행위(HTTP Verb
      $ rails g scaffold post title:string content:text
      ```
 
-	3. `routes.rb`
+     3. `routes.rb`
 
-    ```ruby
-    resources :posts
-    ```
+```ruby
+resources :posts
+```
 
 ### 3. [파일업로드](https://github.com/carrierwaveuploader/carrierwave)
 
