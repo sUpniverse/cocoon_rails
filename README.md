@@ -180,37 +180,37 @@
 
   - `ApplicationController`에 해당 코드를 삽입한다. 
 
-- ####customizing 하기
+- ##### Customizing 하기
 
-  1. controller 수정하기
+  - controller 수정하기
 
-     ```
-     $ rails generate devise:controllers users
-     ```
+    ```
+    $ rails generate devise:controllers users
+    ```
 
-     - `users/` 밑에 많은 하위 controller가 생김 
+    - `users/` 밑에 많은 하위 controller가 생김 
 
-     - 실행하면 그 다음으로 `routes.rb`와 여러가지를 변경하라고 메세지가 나옴
+    - 실행하면 그 다음으로 `routes.rb`와 여러가지를 변경하라고 메세지가 나옴
 
-       ```ruby
-       devise_for :users, controllers: {
-         sessions: 'users/sessions'
-         }
-       ```
+      ```ruby
+      devise_for :users, controllers: {
+        sessions: 'users/sessions'
+        }
+      ```
 
-  2. view 수정하기
+  - view 수정하기
 
-     ```
-     $ rails generate deviese:views
-     ```
+    ```
+    $ rails generate deviese:views
+    ```
 
-     - `app/views/devise` 라는 폴더가 생성된다.  
+    - `app/views/devise` 라는 폴더가 생성된다.  
 
-  3. colum 수정하기
+  - colum 수정하기
 
-     - `db/migrate` 에 원하는 정보로 수정
-     - 해당 view에서 data input을 위한 코드 수정
-     - strong parameter를 설정 (controller 생성 or  `application_controller.rb`)
+    - `db/migrate` 에 원하는 정보로 수정
+    - 해당 view에서 data input을 위한 코드 수정
+    - strong parameter를 설정 (controller 생성 or  `application_controller.rb`)
 
 - Admin 생성하기
 
