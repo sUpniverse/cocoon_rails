@@ -122,15 +122,7 @@
   - 위 처럼 form태그를 변경가능하다 아래쪽을 나중엔 더 많이 쓴다.
 
 
-
-
-### 4. URL Helper
-
- - ​
-
-
-
-### 5. 회원가입 
+### 4. 회원가입 
 
 - `devise`  회원 가입을 위한 gem [devise](https://github.com/plataformatec/devise)
 
@@ -188,7 +180,7 @@
 
   - `ApplicationController`에 해당 코드를 삽입한다. 
 
-- ####Customizing 하기
+- ####customizing 하기
 
   1. controller 수정하기
 
