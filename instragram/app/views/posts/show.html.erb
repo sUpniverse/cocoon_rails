@@ -31,8 +31,12 @@
 	<p>
 		<div>
 			<a href ="#" class="btn btn-primary">좋아요</a>
+			<% if can? :update, @post %>
 			<a href ="/posts/<%=@post.id%>/edit" class="btn btn-warning">수정</a>
-			<a href ="/posts/<%=@post.id%>" data-method="delete" class="btn btn-danger">삭제</a>		
+			<% end %>
+			<% if can? :destroy, @post %>
+			<a href ="/posts/<%=@post.id%>" data-method="delete" class="btn btn-danger"  data-confirm="삭제할래?">삭제</a>		
+			<% end %>
 		</div>
 	</p>
 </div>

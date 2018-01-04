@@ -1,24 +1,23 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  load_and_authorize_resource param_method: :post_params
 
   def index
       @posts = Post.where("title Like ?","%#{params["q"]}%").reverse
   end
 
+  
   def new  	
   end
 
   def create
-  	Post.create(
-  		title: params[:title],
-  		contents: params[:contents],
-      Avatar: params[:Avatar]
-  		)
+  	current_user.posts.create(post_params)
   	redirect_to '/'
   end
 
   def show
-  	@post = Post.find(params[:id])
+  	
   end
 
   def delete
@@ -27,16 +26,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-  	@post = Post.find(params[:id])
+  	
   end  
 
   def update
-  	@post = Post.find(params[:id])
-  	@post.update(
-  		title: params[:title],
-  		contents: params[:contents],
-      Avatar: params[:Avatar]
-  		)
+  	@post.update(post_params)
   	redirect_to "/posts/#{@post.id}"
   end
 
@@ -47,8 +41,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :Avatar)
+      params.require(:post).permit(:title, :contents, :Avatar)
     end 
-
-
 end

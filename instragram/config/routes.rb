@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+    
+
   root 'posts#index'
 
   # resources :posts
@@ -19,6 +22,11 @@ Rails.application.routes.draw do
 
   #Delete
   delete 'posts/:id' => 'posts#delete'
+
+
+  #user_index
+  get 'user/' => 'user#index'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  

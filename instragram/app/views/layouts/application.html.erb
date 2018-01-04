@@ -9,8 +9,27 @@
   </head>
   <body>
   	<div class="container mb-4">
-		<%= render 'layouts/navbar' %>
+		<%= render 'layouts/navbar' %>    
 	</div>
+    <div class="container">
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+    </div>
+    <div class="container">
+      <% if user_signed_in? %>
+        <li>
+          <%= current_user.email %>님
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to('Login', new_user_session_path)  %>
+          <%= link_to('회원가입', new_user_registration_path) %>
+        </li>
+      <% end %>
+    </div>
+    <div class="container">
     <%= yield %>        
+    <div class="container">
   </body>
 </html>
