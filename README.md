@@ -53,7 +53,6 @@
 
   - [폼 헬퍼](http://guides.rorlab.org/form_helpers.html)
 
-    ​
 
 ### 2. scaffolding을 통해  편하게 CRUD 하기 (중수로 나아가기)
 
@@ -179,6 +178,7 @@
   ```
 
   - `ApplicationController`에 해당 코드를 삽입한다. 
+  - username을 넣기위한 [방법](https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address)
 
 - ##### Customizing 하기
 
@@ -194,9 +194,13 @@
 
       ```ruby
       devise_for :users, controllers: {
+        # 각 해당 되는 controller들을 routes에 등록하여준다.
         sessions: 'users/sessions'
+        registrations: 'users/registrations'
         }
       ```
+
+    - `users/` 하위 파일들의 설정들을 필요로함 
 
   - view 수정하기
 
@@ -249,7 +253,6 @@
       ```ruby
       class Ability
         include CanCan::Ability
-
         def initialize(user)
           can :read, :all 
           if user.present?  
