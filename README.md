@@ -76,7 +76,12 @@
 
 1. gemfile
 
+   ```
+   gem install carrierwave -v "1.0.0"
+   ```
+
    ```ruby
+   # gem 파일안에 추가해준다
    gem 'carrierwave', '~> 1.0'
    ```
 
@@ -87,8 +92,10 @@
 2. 파일업로더 생성
 
    ```
-   $ rails generate uploader Avatar(컬럼명)
+   $ rails generate uploader Avatar(업로더 이름)
    ```
+
+   1. 이러면 `app/uploaders/avatar_uploader.rb`  가 생성된다.
 
 3. 서버 작업
 
@@ -97,7 +104,7 @@
 - `post.rb`
 
   ```ruby
-  mount_uploader :컬럼명, AvatarUploader
+  mount_uploader :컬럼명, AvatarUploader (업로더 이름)
   ```
 
 - `posts_controller.rb`
